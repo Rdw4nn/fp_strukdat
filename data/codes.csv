@@ -1,0 +1,31 @@
+id,nama,jenis,area,fasilitas,status
+S01,Stasiun Surabaya Gubeng,Kereta,Surabaya Timur,Toilet;Parkir;AC;Minimarket;ATM,Aktif
+S02,Stasiun Surabaya Pasar Turi,Kereta,Surabaya Utara,Toilet;Parkir;AC;Minimarket;ATM,Aktif
+S03,Stasiun Wonokromo,Kereta,Surabaya Selatan,Toilet;Parkir;Minimarket,Aktif
+S04,Stasiun Waru,Kereta,Sidoarjo,Toilet;Parkir,Aktif
+S05,Stasiun Sepanjang,Kereta,Sidoarjo,Toilet,Aktif
+S06,Stasiun Boharan,Kereta,Sidoarjo,Toilet,Aktif
+S07,Stasiun Krian,Kereta,Sidoarjo,Toilet;Parkir,Aktif
+S08,Stasiun Gedangan,Kereta,Sidoarjo,Toilet,Aktif
+S09,Stasiun Sidoarjo,Kereta,Sidoarjo,Toilet;Parkir;Minimarket,Aktif
+S10,Stasiun Buduran,Kereta,Sidoarjo,Toilet,Aktif
+B01,Terminal Purabaya (Bungurasih),Bus,Surabaya Selatan,Toilet;Parkir;Minimarket;ATM;Mushola,Aktif
+B02,Terminal Tambak Osowilangun,Bus,Surabaya Barat,Toilet;Parkir;Mushola,Aktif
+B03,Terminal Joyoboyo,Bus,Surabaya Selatan,Toilet;Parkir,Aktif
+B04,Halte Rajawali,Bus,Surabaya Utara,Toilet,Aktif
+B05,Halte Bambu Runcing,Bus,Surabaya Pusat,Toilet,Aktif
+B06,Halte Tunjungan,Bus,Surabaya Pusat,AC;Toilet,Aktif
+B07,Halte Urip Sumoharjo,Bus,Surabaya Pusat,Toilet,Aktif
+B08,Halte Diponegoro,Bus,Surabaya Pusat,Toilet,Aktif
+B09,Halte Dukuh Kupang,Bus,Surabaya Barat,Toilet,Aktif
+B10,Halte Raya Darmo,Bus,Surabaya Selatan,AC;Toilet,Aktif
+B11,Halte Jemursari,Bus,Surabaya Selatan,Toilet,Aktif
+B12,Halte Margorejo,Bus,Surabaya Selatan,Toilet,Aktif
+B13,Halte ITS Sukolilo,Bus,Surabaya Timur,Toilet;Parkir,Aktif
+B14,Halte UNAIR Kampus C,Bus,Surabaya Timur,Toilet,Aktif
+B15,Halte Kenjeran,Bus,Surabaya Utara,Toilet,Aktif
+B16,Halte Sidosermo,Bus,Surabaya Selatan,Toilet,Nonaktif
+B17,Halte Rungkut,Bus,Surabaya Timur,Toilet;Parkir,Aktif
+B18,Halte Merr,Bus,Surabaya Timur,AC;Toilet,Aktif
+B19,Halte Bratang,Bus,Surabaya Timur,Toilet,Aktif
+B20,Halte Ngagel,Bus,Surabaya Timur,Toilet,Aktif

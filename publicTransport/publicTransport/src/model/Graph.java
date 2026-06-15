@@ -1,4 +1,4 @@
-package graph;
+package model;
 import java.util.*;
 
 public class Graph {

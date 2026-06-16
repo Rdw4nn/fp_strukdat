@@ -8,18 +8,24 @@ import java.util.*;
 
 public class BFS {
 
-    // Hasil BFS berisi path node (list of ID) + info total waktu & biaya
+    // Class HasilBFS menyimpan hasil pencarian BFS , termasuk rute yang ditemukan, total waktu, total biaya, jumlah transit, dan apakah rute ditemukan atau tidak
     public static class HasilBFS {
-        public List<String> rute;       // list ID node dari asal ke tujuan
+        // urutan node dari asal ke tujuan (list ID node)
+        public List<String> rute;      
+        // akumulasi waktu dan biaya sepanjang rute (hanya dihitung untuk edge yang aktif)
         public int totalWaktu;
+        // total biaya sepanjang rute (hanya dihitung untuk edge yang aktif)
         public int totalBiaya;
-        public int jumlahTransit;       // berapa kali pindah halte/stasiun
+        // jumlah perpindahan antar node
+        public int jumlahTransit;       
+        // status apakah rute ditemukan atau tidak
         public boolean ditemukan;
 
         public HasilBFS(List<String> rute, int totalWaktu, int totalBiaya, boolean ditemukan) {
             this.rute = rute;
             this.totalWaktu = totalWaktu;
             this.totalBiaya = totalBiaya;
+            // jumlah transit adalah jumlah node dalam rute dikurangi 1 (karena tidak dihitung node awal)
             this.jumlahTransit = ditemukan ? rute.size() - 1 : 0;
             this.ditemukan = ditemukan;
         }
@@ -40,7 +46,7 @@ public class BFS {
             return new HasilBFS(new ArrayList<>(), -1, -1, false);
         }
 
-        // Kasus khusus: asal == tujuan
+        // Jika asal dan tujuan sama, tidak perlu pencarian
         if (asalId.equals(tujuanId)) {
             List<String> rute = new ArrayList<>();
             rute.add(asalId);

@@ -419,18 +419,43 @@ Total waktu : 20 menit
 ---
 
 ## 9. Screenshot Hasil Program
-
+---
 **Fitur 1**
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/d2af859f-01ac-4552-8e6b-f55d5a90632d" />
 
+<img width="608" height="926" alt="image" src="https://github.com/user-attachments/assets/b3ac5b3e-6908-4a86-a242-793f46cc4eb5" />
+
+---
 **Fitur 2**
+
+<img width="1566" height="512" alt="image" src="https://github.com/user-attachments/assets/4a4a6fb3-d7d0-4db2-a829-1fc54d305254" />
+
+---
 **Fitur 3**
+
+<img width="1314" height="502" alt="image" src="https://github.com/user-attachments/assets/fb7bc921-f76d-4c15-956a-c5d2d3b87027" />
+
+---
 **Fitur 4**
+
+<img width="628" height="1048" alt="image" src="https://github.com/user-attachments/assets/4258bb7b-feb4-44aa-b000-e27807cffa14" />
+
+---
 **Fitur 5**
-<img width="600" alt="image" src="https://github.com/user-attachments/assets/0cd9fadd-304a-4474-8e64-517ea582cd62" />
 
+<img width="1492" height="582" alt="image" src="https://github.com/user-attachments/assets/31abd9de-1759-43c4-bda5-3d65deb18ec3" />
 
+---
 **Fitur 6**
+
+<img width="996" height="1172" alt="image" src="https://github.com/user-attachments/assets/ff83f00b-ca6d-44d4-b8ba-9c68cf90ceda" />
+<img width="996" height="756" alt="image" src="https://github.com/user-attachments/assets/0fd873a0-e379-4acd-a819-0fb945345cd4" />
+<img width="790" height="616" alt="image" src="https://github.com/user-attachments/assets/55d610a1-5b4d-44f0-b9e7-283577763fb3" />
+
+
+---
+**Fitur 7**
+
+<img width="708" height="990" alt="image" src="https://github.com/user-attachments/assets/1843ef60-f06c-481f-8d8b-35948434ed0a" />
 
 ---
 

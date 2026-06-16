@@ -7,9 +7,8 @@ import java.util.*;
 
 public class App {
 
-    // =====================================================
+
     // LOAD DATA DARI CSV
-    // =====================================================
     static Graph loadGraph() throws Exception {
         Graph graph = new Graph();
 
@@ -39,6 +38,7 @@ public class App {
         return graph;
     }
 
+    // Bangun Trie dari data graph (nama node -> Node)
     static Trie loadTrie(Graph graph) {
         Trie trie = new Trie();
         for (String id : graph.getAllNodeIds()) {
@@ -48,18 +48,15 @@ public class App {
         return trie;
     }
 
-    // =====================================================
-    // FITUR INTEGRASI TREE + GRAPH
-    // User cari halte pakai Trie, lalu BFS jalan
-    // =====================================================
+ 
     static void fiturIntegrasiTrieBFS(Graph graph, Trie trie, Scanner scanner) {
         System.out.println("\n========================================");
         System.out.println("  CARI HALTE + RUTE MINIMUM TRANSIT");
         System.out.println("  (Integrasi Trie + BFS)");
         System.out.println("========================================");
 
-        // Langkah 1: Cari halte ASAL pakai Trie
-        System.out.print("Ketik awalan nama halte ASAL: ");
+        // cari nama tempat transportasi ASAL pakai Trie
+        System.out.print("Ketik awalan nama halte/stasiun/terminal (ASAL): ");
         String prefixAsal = scanner.nextLine().trim();
         List<Node> hasilAsal = trie.searchByPrefix(prefixAsal);
 
@@ -68,7 +65,7 @@ public class App {
             return;
         }
 
-        System.out.println("Pilih halte ASAL:");
+        System.out.println("Pilih halte/stasiun/terminal (ASAL):");
         for (int i = 0; i < hasilAsal.size(); i++) {
             System.out.println("  " + (i+1) + ". [" + hasilAsal.get(i).getId() + "] " + hasilAsal.get(i).getNama());
         }
@@ -76,8 +73,8 @@ public class App {
         int pilihanAsal = Integer.parseInt(scanner.nextLine().trim()) - 1;
         String asalId = hasilAsal.get(pilihanAsal).getId();
 
-        // Langkah 2: Cari halte TUJUAN pakai Trie
-        System.out.print("Ketik awalan nama halte TUJUAN: ");
+        // cari nama tempat transportasi TUJUAN pakai Trie
+        System.out.print("Ketik awalan nama halte/stasiun/terminal (TUJUAN): ");
         String prefixTujuan = scanner.nextLine().trim();
         List<Node> hasilTujuan = trie.searchByPrefix(prefixTujuan);
 
@@ -86,7 +83,7 @@ public class App {
             return;
         }
 
-        System.out.println("Pilih halte TUJUAN:");
+        System.out.println("Pilih halte/stasiun/terminal (TUJUAN):");
         for (int i = 0; i < hasilTujuan.size(); i++) {
             System.out.println("  " + (i+1) + ". [" + hasilTujuan.get(i).getId() + "] " + hasilTujuan.get(i).getNama());
         }
@@ -94,14 +91,16 @@ public class App {
         int pilihanTujuan = Integer.parseInt(scanner.nextLine().trim()) - 1;
         String tujuanId = hasilTujuan.get(pilihanTujuan).getId();
 
-        // Langkah 3: Jalankan BFS
+        // cari rute minimum transit pakai BFS
         BFS.HasilBFS hasil = BFS.cariMinimumTransit(graph, asalId, tujuanId);
 
+        // jika rute tidak ditemukan
         if (!hasil.ditemukan) {
             System.out.println("Tidak ada rute yang tersedia.");
             return;
         }
 
+        // tampilkan hasil rute
         System.out.println("\nRute minimum transit ditemukan (" + hasil.jumlahTransit + " transit):");
         for (int i = 0; i < hasil.rute.size(); i++) {
             Node n = graph.getNode(hasil.rute.get(i));
@@ -111,39 +110,40 @@ public class App {
         System.out.println("Total Biaya : Rp " + String.format("%,d", hasil.totalBiaya));
     }
 
-    // =====================================================
+
     // MAIN MENU
-    // =====================================================
     public static void main(String[] args) throws Exception {
         System.setOut(new PrintStream(System.out, true, "UTF-8"));
         System.setErr(new PrintStream(System.err, true, "UTF-8"));
 
         Scanner scanner = new Scanner(System.in);
 
+        // Load data graph dan trie dari file CSV
         System.out.println("Memuat data...");
         Graph graph = loadGraph();
-        Trie trie   = loadTrie(graph);
+        Trie trie  = loadTrie(graph);
 
+        // informasi jumlah node dan edge setelah load data
         System.out.println("Data berhasil dimuat!");
         System.out.println("Node: " + graph.jumlahNode() + " | Edge: " + graph.jumlahEdge());
 
         // Inisialisasi fitur
-        PrefixSearcher    prefixSearcher    = new PrefixSearcher(trie);
-        MinTransitFinder  minTransitFinder  = new MinTransitFinder(graph);
-        RouteSimulator    routeSimulator    = new RouteSimulator(graph);
+        PrefixSearcher prefixSearcher = new PrefixSearcher(trie);
+        MinTransitFinder minTransitFinder = new MinTransitFinder(graph);
+        RouteSimulator routeSimulator = new RouteSimulator(graph);
 
         boolean jalan = true;
         while (jalan) {
             System.out.println("\n========================================");
-            System.out.println("   SISTEM TRANSPORTASI UMUM SURABAYA");
+            System.out.println("        SISTEM TRANSPORTASI UMUM ");
             System.out.println("========================================");
-            System.out.println("1. Cari halte/stasiun berdasarkan nama");
-            System.out.println("2. Cari rute TERCEPAT (Dijkstra)");
-            System.out.println("3. Cari rute TERMURAH (Dijkstra)");
-            System.out.println("4. Cari rute MINIMUM TRANSIT (BFS)");
-            System.out.println("5. Bandingkan dua kriteria rute (Dijkstra)");
+            System.out.println("1. Cari halte/stasiun/terminal berdasarkan nama");
+            System.out.println("2. Cari rute TERCEPAT");
+            System.out.println("3. Cari rute TERMURAH");
+            System.out.println("4. Cari rute MINIMUM TRANSIT");
+            System.out.println("5. Bandingkan dua kriteria rute");
             System.out.println("6. Simulasi rute tidak tersedia");
-            System.out.println("7. Cari halte + rute sekaligus [INTEGRASI]");
+            System.out.println("7. Cari halte/stasiun/terminal + rute sekaligus");
             System.out.println("0. Keluar");
             System.out.println("========================================");
             System.out.print("Pilih menu: ");
@@ -152,12 +152,12 @@ public class App {
 
             switch (pilihan) {
                 case "1":
-                    // Fitur Orang 2
+                    // mencari halte/stasiun/terminal berdasarkan nama
                     prefixSearcher.runFeature(scanner);
                     break;
 
                 case "2":
-                    // Fitur Orang 1 - Dijkstra tercepat
+                    // meminta id asal dan tujuan, lalu cari rute tercepat pakai Dijkstra
                     System.out.print("ID Asal  : "); String a2 = scanner.nextLine().trim().toUpperCase();
                     System.out.print("ID Tujuan: "); String t2 = scanner.nextLine().trim().toUpperCase();
                     Djikstra.HasilRute r2 = Djikstra.cari(graph, a2, t2, "waktu");
@@ -168,7 +168,7 @@ public class App {
                     break;
 
                 case "3":
-                    // Fitur Orang 1 - Dijkstra termurah
+                    // meminta id asal dan tujuan, lalu cari rute termurah pakai Dijkstra
                     System.out.print("ID Asal  : "); String a3 = scanner.nextLine().trim().toUpperCase();
                     System.out.print("ID Tujuan: "); String t3 = scanner.nextLine().trim().toUpperCase();
                     Djikstra.HasilRute r3 = Djikstra.cari(graph, a3, t3, "biaya");
@@ -179,29 +179,31 @@ public class App {
                     break;
 
                 case "4":
-                    // Fitur Orang 3 (KAMU) - BFS
+                    // mencari rute dengan jumlah transit paling sedikit pakai BFS
                     minTransitFinder.runFeature(scanner);
                     break;
 
                 case "5":
-                    // Fitur Orang 1 - Bandingkan dua kriteria
+                    // membandingkan dua kriteria rute (waktu vs biaya) pakai Dijkstra
                     System.out.print("ID Asal  : "); String a5 = scanner.nextLine().trim().toUpperCase();
                     System.out.print("ID Tujuan: "); String t5 = scanner.nextLine().trim().toUpperCase();
                     Djikstra.bandingkanRute(graph, a5, t5);
                     break;
 
                 case "6":
-                    // Fitur Orang 3 (KAMU) - Simulasi
+                    // simulasi edge nonaktif 
                     routeSimulator.runFeature(scanner);
                     break;
 
                 case "7":
-                    // Integrasi Trie + BFS (Orang 2 + Orang 3)
+                    // mencari halte + rute sekaligus
                     fiturIntegrasiTrieBFS(graph, trie, scanner);
                     break;
 
                 case "0":
-                    System.out.println("Program selesai. Terima kasih!");
+                    // keluar sistem
+                    System.out.println("Keluar dari program...");
+                    System.out.println("Terima kasih!");
                     jalan = false;
                     break;
 

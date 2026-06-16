@@ -20,13 +20,13 @@ public class MinTransitFinder {
      */
     public void runFeature(Scanner scanner) {
         System.out.println("\n========================================");
-        System.out.println("   CARI RUTE MINIMUM TRANSIT (BFS)");
+        System.out.println("   CARI RUTE MINIMUM TRANSIT ");
         System.out.println("========================================");
 
-        System.out.print("Masukkan ID halte/stasiun ASAL   (contoh: S01): ");
+        System.out.print("Masukkan ID halte/stasiun/terminal (ASAL): ");
         String asalId = scanner.nextLine().trim().toUpperCase();
 
-        System.out.print("Masukkan ID halte/stasiun TUJUAN (contoh: B01): ");
+        System.out.print("Masukkan ID halte/stasiun/terminal (TUJUAN): ");
         String tujuanId = scanner.nextLine().trim().toUpperCase();
 
         // Validasi node ada di graph
@@ -95,7 +95,7 @@ public class MinTransitFinder {
     private void tampilkanInfoEdge(String dariId, String keId) {
         for (model.Edge edge : graph.getNeighbors(dariId)) {
             if (edge.isAktif() && edge.getTujuan().getId().equals(keId)) {
-                System.out.println("       ↓ " + edge.getJenisTransportasi()
+                System.out.println( "     >> " + edge.getJenisTransportasi()
                         + " | " + edge.getWaktuMenit() + " menit"
                         + " | Rp " + String.format("%,d", edge.getBiayaRupiah()));
                 break;

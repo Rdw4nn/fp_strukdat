@@ -4,7 +4,7 @@
 | No  | Nama                           | NRP        |
 | --- | ------------------------------ | ---------- |
 | 1   | Revalinda Bunga Nayla Laksono  | 5027251011 |
-| 2   | Putri Permata Sabil            | 5027251047 |
+| 2   | Putri Permata Sabila           | 5027251047 |
 | 3   | Nathania Tiara Wahyudi         | 5027251089 |
 | 4   | Jude Athala Yazid Sari         | 5027251098 |
 | 5   | Muhammmad Ridwan               | 5027251113 |
@@ -30,7 +30,7 @@
 
 ---
 
-## 1. Deskripsi Proyek
+## 1. Deskripsi Masalah
 
 Proyek ini merupakan simulasi sistem informasi transportasi umum kota Surabaya yang dibangun menggunakan struktur data dan algoritma dasar. Program memodelkan jaringan halte bus dan stasiun kereta sebagai graf berarah berbobot, kemudian menyediakan beberapa fitur pencarian rute yang dapat digunakan oleh pengguna.
 

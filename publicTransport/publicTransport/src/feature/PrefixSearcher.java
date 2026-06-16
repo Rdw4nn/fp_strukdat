@@ -15,7 +15,7 @@ public class PrefixSearcher {
 
     public void runFeature(Scanner scanner) {
 
-        System.out.println("\n=== PENCARIAN HALTE / STASIUN ===");
+        System.out.println("\n=== PENCARIAN HALTE / STASIUN / TERMINAL ===");
 
         System.out.print("Masukkan awalan nama: ");
 
